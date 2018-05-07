@@ -10,7 +10,6 @@ Personally, the most anticipated thing is the various course's practice, I can m
 ## Part1: Source code analysis
 Source code are based on `linux v2.6.39`, you can get an identical copy on [https://elixir.bootlin.com/linux/v2.6.39/source](https://elixir.bootlin.com/linux/v2.6.39/source) freely. Here we would give an insight on linux system call `fork()`, which would spawn a new processs that resources inherited from parent process and load specific program to execute. Intact source code of `fork()` could obtain from [https://elixir.bootlin.com/linux/v2.6.39/source/kernel/fork.c](https://elixir.bootlin.com/linux/v2.6.39/source/kernel/fork.c). And note that I would remove redundant code and comments since I want to give a brief overview instead of detailed explainnations.
 ```cpp
-///
 long do_fork(unsigned long clone_flags,
 	      unsigned long stack_start,
 	      struct pt_regs *regs,
@@ -18,6 +17,7 @@ long do_fork(unsigned long clone_flags,
 	      int __user *parent_tidptr,
 	      int __user *child_tidptr)
 {
+/// *task_struct* represents the PROCESS 
 	struct task_struct *p;
 	int trace = 0;
 	long nr;
@@ -42,13 +42,14 @@ long do_fork(unsigned long clone_flags,
 	 */
 	if (likely(user_mode(regs)))
 		trace = tracehook_prepare_clone(clone_flags);
-
+/// Spwan new process and inherit parent process resource
 	p = copy_process(clone_flags, stack_start, regs, stack_size,
 			 child_tidptr, NULL, trace);
 	/*
 	 * Do this prior waking up the new thread - the thread pointer
 	 * might get invalid after that point, if the thread exits quickly.
 	 */
+ /// If copy_process() worked well
 	if (!IS_ERR(p)) {
 		struct completion vfork;
 
