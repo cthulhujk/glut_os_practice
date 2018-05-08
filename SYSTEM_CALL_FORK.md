@@ -75,18 +75,13 @@ long do_fork(unsigned long clone_flags,
 			return -EPERM;
 	}
 
-	/*
-	 * When called from kernel_thread, don't do user tracing stuff.
-	 */
+/// If this invocation was asked by kernel, don't do user tracing stuff. Note that *likely()* is and optimization signal, it told the compiler that "THIS IS HOTSPOT CODE BLOCK, YOU CAN DO MORE RADICAL OPTIMIZATIOS!"
 	if (likely(user_mode(regs)))
 		trace = tracehook_prepare_clone(clone_flags);
 /// Spwan new process and inherit parent process resource
 	p = copy_process(clone_flags, stack_start, regs, stack_size,
 			 child_tidptr, NULL, trace);
-	/*
-	 * Do this prior waking up the new thread - the thread pointer
-	 * might get invalid after that point, if the thread exits quickly.
-	 */
+
  /// If copy_process() worked well
 	if (!IS_ERR(p)) {
 		struct completion vfork;
@@ -107,14 +102,8 @@ long do_fork(unsigned long clone_flags,
 
 		tracehook_report_clone(regs, clone_flags, nr, p);
 
-		/*
-		 * We set PF_STARTING at creation in case tracing wants to
-		 * use this to distinguish a fully live task from one that
-		 * hasn't gotten to tracehook_report_clone() yet.  Now we
-		 * clear it and set the child going.
-		 */
 		p->flags &= ~PF_STARTING;
-
+/// Wake up new task via clone_flags and run it firstly since subprocess would call exec*() for their stuff, it's unreasonable to delay it. 
 		wake_up_new_task(p, clone_flags);
 
 		tracehook_report_clone_complete(trace, regs,
@@ -132,3 +121,6 @@ long do_fork(unsigned long clone_flags,
 	return nr;
 }
 ```
+
+# Reference
+[0] Linux kernel development Third Edition, Robert Love,2011.6
