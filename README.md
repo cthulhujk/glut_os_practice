@@ -14,6 +14,11 @@ Personally, the most anticipated thing is the various course's practice, I can m
 
 ## Part2: Simulate OS behaviors using ad hoc programs
 + [**Process synchronization**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ThreadSync)
+> Multi readers and a single writer.
++ [**Process scheduling using multi algorithms**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ProcessScheduling)
+> Simulating process scheduling behavior by maximum priority scheduling algorithm policy
+![](images/process_scheduling.gif)
+[Windows 64bits release download](bin/SchedulingGUI.exe)
 
 ## License
 I don't give a license now, you can do anything you want!
