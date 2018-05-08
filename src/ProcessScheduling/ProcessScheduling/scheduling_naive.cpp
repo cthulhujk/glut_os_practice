@@ -13,7 +13,7 @@ int main() {
         processes[i].startTime = now;
         processes[i].expectTime = now + 10;
 
-        processes[i].priority = rand() % 10 + 1;
+        processes[i].priority = 10; 
 
         processes[i].status = PROCESS_STATUS_READY;
         processes[i].usedCPUCount = 0;

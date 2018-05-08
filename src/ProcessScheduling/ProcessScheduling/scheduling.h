@@ -18,11 +18,6 @@ struct ProcessControlBlock {
     long usedCPUCount;
     int status;
 };
-struct Compare{
-    bool operator()(ProcessControlBlock* left, ProcessControlBlock* right) const{
-        return left->priority < right->priority;
-    }
-};
 
 typedef struct ProcessControlBlock Process;
 
@@ -40,8 +35,8 @@ void dump(Process processes[], int processNum) {
 }
 
 void maxPriorityScheduling(Process processes[], int processNum) {
-    //将所有进程都放进就绪队列（因为进程初始状态都是READY）
-    std::priority_queue<Process*, std::vector<Process*>, Compare> readyQueue;
+    //将所有进程都放进等待队列（因为进程初始状态都是READY）
+    std::queue<Process*> readyQueue;
     for (int i = 0; i < PROCESS_NUM; i++) {
         if (processes[i].status == PROCESS_STATUS_READY) {
             readyQueue.push(&processes[i]);
@@ -51,7 +46,7 @@ void maxPriorityScheduling(Process processes[], int processNum) {
     //当就绪队列还有进程就一直循环
     while (!readyQueue.empty()) {
         //获取等待队列第一个进程
-        Process * p = readyQueue.top();
+        Process * p = readyQueue.front();
         readyQueue.pop();
 
         //假装进程运行了一个时间片，这里是0.5秒
