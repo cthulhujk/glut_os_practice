@@ -75,7 +75,8 @@ long do_fork(unsigned long clone_flags,
 			return -EPERM;
 	}
 
-/// If this invocation was asked by kernel, don't do user tracing stuff. Note that *likely()* is and optimization signal, it told the compiler that "THIS IS HOTSPOT CODE BLOCK, YOU CAN DO MORE RADICAL OPTIMIZATIOS!"
+/// If this invocation was asked by kernel, don't do user tracing stuff. Note that *likely()* is and optimization signal, 
+/// it told the compiler that "THIS IS HOTSPOT CODE BLOCK, YOU CAN DO MORE RADICAL OPTIMIZATIOS!"
 	if (likely(user_mode(regs)))
 		trace = tracehook_prepare_clone(clone_flags);
 /// Spwan new process and inherit parent process resource
@@ -103,7 +104,8 @@ long do_fork(unsigned long clone_flags,
 		tracehook_report_clone(regs, clone_flags, nr, p);
 
 		p->flags &= ~PF_STARTING;
-/// Wake up new task via clone_flags and run it firstly since subprocess would call exec*() for their stuff, it's unreasonable to delay it. 
+/// Wake up new task via clone_flags and run it firstly since subprocess would call exec*() for their stuff, it's unreasonable 
+/// to delay it. 
 		wake_up_new_task(p, clone_flags);
 
 		tracehook_report_clone_complete(trace, regs,
