@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/src/ProcessScheduling/.vs/ProcessScheduling/v15
+/src/ProcessScheduling/Debug/ProcessScheduling.exe
+/src/ProcessScheduling/Debug
+/src/ProcessScheduling/ProcessScheduling/Debug
+/src/ProcessScheduling/ProcessScheduling/ProcessScheduling.vcxproj.user
+/src/ThreadSync/cmake-build-debug
+/src/ThreadSync/.idea

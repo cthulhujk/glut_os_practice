@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProcessScheduling", "ProcessScheduling\ProcessScheduling.vcxproj", "{955E4EB7-DCE3-461A-874B-8348E84C5398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Debug|x64.ActiveCfg = Debug|x64
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Debug|x64.Build.0 = Debug|x64
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Debug|x86.ActiveCfg = Debug|Win32
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Debug|x86.Build.0 = Debug|Win32
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Release|x64.ActiveCfg = Release|x64
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Release|x64.Build.0 = Release|x64
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Release|x86.ActiveCfg = Release|Win32
+		{955E4EB7-DCE3-461A-874B-8348E84C5398}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29A9E8DB-B5C1-4E0D-872F-08673221482D}
+	EndGlobalSection
+EndGlobal
