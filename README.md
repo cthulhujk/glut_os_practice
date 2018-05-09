@@ -21,8 +21,8 @@ Personally, the most anticipated things are various practices each term, I can m
 > Multi readers and a single writer.
 + [**Project 3 : The dinning philosophers problem**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/DeadLock)
 > In 1965, Dijkstra posed and solved a synchronization problem he called the dining philosophers problem. Here this project intends to simulate it.
-+ [** Project 4 : Page replacement TODO **]()
-
++ [** Project 4 : Page replacement TODO **](https://github.com/cthulhujk/glut_os_practice/tree/master/src/PageReplacement)
+> Use FIFO policy and LRU policy when a page fault occurred
 + [** Project 5 : Disk scheduling TODO **]()
 
 + [**Project 6 : File system WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/YFileSystem)

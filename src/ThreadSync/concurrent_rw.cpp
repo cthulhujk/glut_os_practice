@@ -20,7 +20,7 @@ void concurrentRW(std::fstream & fs){
             while(!fs.eof()){
                 rMutex.lock();
                 writing=true;
-                std::cout<<"-\n";
+                std::cout<<"----------------------------------------\n";
                 writing=false;
                 rMutex.unlock();
             }
