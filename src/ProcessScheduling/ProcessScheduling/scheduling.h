@@ -29,7 +29,7 @@ struct Compare {
 typedef struct ProcessControlBlock Process;
 
 void dump(Process processes[], int processNum) {
-    printf("½ø³ÌÃû\t\t×´Ì¬\tÓÅÏÈ¼¶\tCPU¼ÆÊı\t¿ªÊ¼Ê±¼ä\tÆÚ´ıÔËĞĞÊ±¼ä\n");
+    printf("è¿›ç¨‹å\t\tçŠ¶æ€\tä¼˜å…ˆçº§\tCPUè®¡æ•°\tå¼€å§‹æ—¶é—´\tæœŸå¾…è¿è¡Œæ—¶é—´\n");
     for (int i = 0; i < processNum; i++) {
         printf("%s\t%s\t%d\t%d\t%lld\t%lld\n",
             processes[i].name,
@@ -42,7 +42,7 @@ void dump(Process processes[], int processNum) {
 }
 
 void maxPriorityScheduling(Process processes[], int processNum) {
-    //½«ËùÓĞ½ø³Ì¶¼·Å½ø¾ÍĞ÷¶ÓÁĞ£¨ÒòÎª½ø³Ì³õÊ¼×´Ì¬¶¼ÊÇREADY£©
+    //å°†æ‰€æœ‰è¿›ç¨‹éƒ½æ”¾è¿›å°±ç»ªé˜Ÿåˆ—ï¼ˆå› ä¸ºè¿›ç¨‹åˆå§‹çŠ¶æ€éƒ½æ˜¯READYï¼‰
     std::priority_queue<Process*, std::vector<Process*>, Compare> readyQueue;
     for (int i = 0; i < PROCESS_NUM; i++) {
         if (processes[i].status == PROCESS_STATUS_READY) {
@@ -50,30 +50,34 @@ void maxPriorityScheduling(Process processes[], int processNum) {
         }
     }
 
-    //µ±¾ÍĞ÷¶ÓÁĞ»¹ÓĞ½ø³Ì¾ÍÒ»Ö±Ñ­»·
+    //å½“å°±ç»ªé˜Ÿåˆ—è¿˜æœ‰è¿›ç¨‹å°±ä¸€ç›´å¾ªç¯
     while (!readyQueue.empty()) {
-        //»ñÈ¡µÈ´ı¶ÓÁĞµÚÒ»¸ö½ø³Ì
+        //è·å–ç­‰å¾…é˜Ÿåˆ—ç¬¬ä¸€ä¸ªè¿›ç¨‹
         Process * p = readyQueue.top();
         readyQueue.pop();
 
-        //¼Ù×°½ø³ÌÔËĞĞÁËÒ»¸öÊ±¼äÆ¬£¬ÕâÀïÊÇ0.5Ãë
+        //å‡è£…è¿›ç¨‹è¿è¡Œäº†ä¸€ä¸ªæ—¶é—´ç‰‡ï¼Œè¿™é‡Œæ˜¯0.5ç§’
         p->status = PROCESS_STATUS_RUNNING;
         Sleep(500);
         dump(processes, processNum);
 
         if (difftime(time(NULL), p->expectTime) > 0.0) {
-            //Èç¹ûÏÖÔÚÊ±¼ä³¬³ö½ø³ÌÔÊĞíÔËĞĞÊ±¼äÄÇ¾Í°Ñ½ø³ÌÉèÖÃÎªEXIT
+            //å¦‚æœç°åœ¨æ—¶é—´è¶…å‡ºè¿›ç¨‹å…è®¸è¿è¡Œæ—¶é—´é‚£å°±æŠŠè¿›ç¨‹è®¾ç½®ä¸ºEXIT
             p->status = PROCESS_STATUS_EXIT;
         }
         else {
-            //·ñÔòËüµÄÒÑÊ¹ÓÃCPUÊ±¼ä¼ÓÒ»£¬ÓÅÏÈ¼¶¼õÒ»,²¢·ÅÈë¾ÍĞ÷¶ÓÁĞÎ²
+            //å¦åˆ™å®ƒçš„å·²ä½¿ç”¨CPUæ—¶é—´åŠ ä¸€ï¼Œä¼˜å…ˆçº§å‡ä¸€,å¹¶æ”¾å…¥å°±ç»ªé˜Ÿåˆ—å°¾
             p->status = PROCESS_STATUS_READY;
-            p->priority = p->priority > 0 ? p->priority : 0;
+            if(p->priority > 0){
+                p->priority--;
+            }else{
+                p->priority = 0;
+            }
             p->usedCPUCount++;
             readyQueue.push(p);
         }
 
-        //Ã¿´Îµ÷¶È¶¼Êä³öµ±Ç°ËùÓĞ½ø³ÌĞÅÏ¢
+        //æ¯æ¬¡è°ƒåº¦éƒ½è¾“å‡ºå½“å‰æ‰€æœ‰è¿›ç¨‹ä¿¡æ¯
         dump(processes, processNum);
     }
 }
