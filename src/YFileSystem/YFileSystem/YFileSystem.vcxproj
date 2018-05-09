@@ -115,6 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="YFile.h" />
+    <ClInclude Include="YFileSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="YFile.cpp" />
+    <ClCompile Include="YFileSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
