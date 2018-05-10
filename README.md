@@ -13,17 +13,17 @@ Personally, the most anticipated things are various practices each term, I can m
 
 
 ## Part2: Simulate OS behaviors using ad hoc programs
-+ [**Project 1 : Process scheduling using multi algorithms**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ProcessScheduling)
++ [**:white_check_mark: Project 1 : Process scheduling using multi algorithms**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ProcessScheduling)
 > Simulating process scheduling behavior by maximum priority scheduling algorithm policy
 ![](images/process_scheduling.gif)
 [Windows 64bits release download](bin/SchedulingGUI.exe)
 + [**Project 2 : Process synchronization  WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ThreadSync)
 > Multi readers and a single writer.
-+ [**Project 3 : The dinning philosophers problem**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/DeadLock)
++ [**:white_check_mark: Project 3 : The dinning philosophers problem**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/DeadLock)
 > In 1965, Dijkstra posed and solved a synchronization problem he called the dining philosophers problem. Here this project intends to simulate it.
-+ [**Project 4 : Page replacement**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/PageReplacement)
++ [**:white_check_mark: Project 4 : Page replacement**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/PageReplacement)
 > Use FIFO policy and LRU policy when a page fault occurred
-+ [**Project 5 : Disk scheduling TODO**]()
++ [**:negative_squared_cross_mark: Project 5 : Disk scheduling (NOTE I MIGHT DONT DO THIS WORK SINCE I AM NOT INTERESTED IN DISK SCHEDULING ROUTINE)**]()
 
 + [**Project 6 : File system WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/YFileSystem)
 
