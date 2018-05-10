@@ -13,7 +13,7 @@ public:
 
 public:
     void mkdir(const char * path);
-    void rmdir(const char * path){}
+    void rmdir(const char * path);
     void ls();
     File* open(const char * path) { return nullptr; }
     void read(File * f, char * buf, size_t byteNum) {}
@@ -22,7 +22,7 @@ public:
 
 private:
     void lsImpl(Directory * root);
-    
+    Node* traverseToEndian(const std::string & path);
 
     std::vector<std::string> parsePathList(const char * path);
     Directory * rootDir;

@@ -10,6 +10,13 @@ void YFileSystem::mkdir(const char * path){
     }
 }
 
+void YFileSystem::rmdir(const char * path){
+    Node * end = traverseToEndian(path);
+    if (end != nullptr) {
+        
+    }
+}
+
 void YFileSystem::ls(){
     lsImpl(rootDir);
 }
@@ -27,6 +34,20 @@ void YFileSystem::lsImpl(Directory * root){
             lsImpl(dynamic_cast<Directory*>(sub[i]));
         }
     }
+}
+
+Node * YFileSystem::traverseToEndian(const std::string & path){
+   Directory * n = rootDir;
+    std::vector<std::string>  plist = parsePathList(path.c_str());
+    for (int i = 0; i < plist.size(); i++) {
+        auto subs = n->getSubNode();
+        for (int k = 0; k < subs.size(); k++) {
+            if (subs[k]->name == plist[i]) {
+                n = (Directory*)subs[k];
+            }
+        }
+    }
+    return n;
 }
 
 std::vector<std::string> YFileSystem::parsePathList(const char * path){

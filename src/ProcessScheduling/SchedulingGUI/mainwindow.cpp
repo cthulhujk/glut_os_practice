@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Initialize 10 processes
     for (int i = 0; i < PROCESS_NUM; i++) {
         processes[i].name = "p"+i;
-        processes[i].priority = rand() % 10 + 1;
+        processes[i].priority = rand() % 100 + 1;
         processes[i].status = PROCESS_STATUS_READY;
         processes[i].usedCPUCount = 0;
 
@@ -61,7 +61,11 @@ void MainWindow::on_pushButton_clicked(){
         }
         else {
             p->status = PROCESS_STATUS_READY;
-            p->priority = p->priority > 0 ? p->priority : 0;
+            if(p->priority>0){
+                p->priority--;
+            }else{
+                p->priority = 0;
+            }
             p->usedCPUCount++;
             readyQueue.push(p);
 
@@ -101,7 +105,11 @@ void MainWindow::on_pushButton_3_clicked(){
         }
         else {
             p->status = PROCESS_STATUS_READY;
-            p->priority = p->priority > 0 ? p->priority : 0;
+            if(p->priority>0){
+                p->priority--;
+            }else{
+                p->priority = 0;
+            }
             p->usedCPUCount++;
             readyQueue.push(p);
 
@@ -113,7 +121,7 @@ void MainWindow::on_pushButton_3_clicked(){
 
 void MainWindow::on_pushButton_2_clicked(){
     for(int i=0;i<PROCESS_NUM;i++){
-        processes[i].priority = rand() % 10 + 1;
+        processes[i].priority = rand() % 100 + 1;
         processes[i].status = PROCESS_STATUS_READY;
         processes[i].usedCPUCount = 0;
         processes[i].relatedProgressBar->setValue(0);
