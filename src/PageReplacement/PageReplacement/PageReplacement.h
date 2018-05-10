@@ -15,6 +15,7 @@ public:
     PageReplacement();
 
     void FIFO();
+    void LRU();
 
 private:
     void dbgPrintInstructionRelatedPages();

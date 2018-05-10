@@ -60,3 +60,28 @@ void PageReplacement::FIFO() {
         }
     }
 }
+
+void PageReplacement::LRU() {
+    currentPolicy = PageReplacement::Policy::LRU;
+    for (int i = 0; i < INSTRUCTION_NUM; i++) {
+        int insPage = getVirtualPageID(instruction[i]);
+        
+        if (pageAddr.size() == PAGE_NUM) {
+            // Cause page fault;
+            if (!hasPageAddr(insPage)) {
+                pageFaultCnt++;
+                dumpPageFaultRatio();
+                for (int m = 0; m < PAGE_NUM; m++) {
+                    auto res = std::find(pageAddr.begin(), pageAddr.end(), getVirtualPageID(instruction[i - PAGE_NUM + m]));
+                    if (res != pageAddr.end()) {
+                        pageAddr.erase(res);
+                    }
+                }
+                pageAddr.push_back(insPage);
+            }
+        }
+        else {
+            pageAddr.push_back(insPage);
+        }
+    }
+}
