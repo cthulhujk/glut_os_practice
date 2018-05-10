@@ -2,6 +2,9 @@
 #define _Y_FILE_SYSTEM_HEADER
 
 #include "YFile.h"
+#include <list>
+#include <string>
+#include <iostream>
 
 class YFileSystem{
 public:
@@ -9,15 +12,19 @@ public:
     ~YFileSystem() { delete rootDir; }
 
 public:
-    bool mkdir(const char * path);
-    bool rmdir(const char * path);
-    bool ls(const char * path);
-    File* open(const char * path);
-    bool read(File * f, char * buf, size_t byteNum);
-    bool write(File* f, char * buf, size_t byteNum);
+    void mkdir(const char * path);
+    void rmdir(const char * path){}
+    void ls();
+    File* open(const char * path) { return nullptr; }
+    void read(File * f, char * buf, size_t byteNum) {}
+    void write(File* f, char * buf, size_t byteNum) {}
 
 
 private:
+    void lsImpl(Directory * root);
+    
+
+    std::vector<std::string> parsePathList(const char * path);
     Directory * rootDir;
 };
 

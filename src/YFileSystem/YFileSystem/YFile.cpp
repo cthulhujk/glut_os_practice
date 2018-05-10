@@ -5,3 +5,11 @@ Directory::~Directory(){
         delete sibling[i];
     }
 }
+
+File & File::open(){
+    std::string fname("yfs_");
+    fname += name;
+
+    fs.open(fname, std::ios::out | std::ios::app);
+    return *this;
+}
