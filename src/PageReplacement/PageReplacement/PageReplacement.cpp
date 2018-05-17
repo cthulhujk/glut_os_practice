@@ -27,17 +27,17 @@ void PageReplacement::dbgPrintInstructionRelatedPages() {
 
 void PageReplacement::dumpPageFaultRatio(){
     if (currentPolicy == PageReplacement::Policy::FIFO) {
-        std::cout << "FIFO";
+    //    std::cout << "FIFO";
     }
     else if (currentPolicy == PageReplacement::Policy::LRU) {
-        std::cout << "LRU";
+    //    std::cout << "LRU";
     }
     else {
         static_assert(true, "Unknow page replacement policy selected");
     }
-    std::cout << " page fault :";
+    //std::cout << " page fault :";
     std::cout << (1.0 - (pageFaultCnt / (INSTRUCTION_NUM*1.0)))* 100.0;
-    std::cout << "%\n";
+    std::cout << ",";
 }
 
 void PageReplacement::FIFO() {

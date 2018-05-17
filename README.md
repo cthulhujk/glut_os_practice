@@ -18,8 +18,8 @@ Personally, the most anticipated things are various practices each term, I can m
 > Simulating process scheduling behavior by maximum priority scheduling algorithm policy
 ![](images/process_scheduling.gif)
 [Windows 64bits release download](bin/SchedulingGUI.exe)
-+ [**Project 2 : Process synchronization  WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ThreadSync)
-> Multi readers and a single writer.
++ [**Project 2 : Process synchronization**](https://github.com/racaljk/sync_infrastructure/blob/master/src/RWLock.h)
+> Multi readers and a single writer. I just implement a read-write lock instead.
 + [**:white_check_mark: Project 3 : The dinning philosophers problem**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/DeadLock)
 > In 1965, Dijkstra posed and solved a synchronization problem he called the dining philosophers problem. Here this project intends to simulate it.
 + [**:white_check_mark: Project 4 : Page replacement**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/PageReplacement)

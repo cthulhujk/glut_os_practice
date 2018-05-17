@@ -17,15 +17,15 @@
 > 模拟最大优先级调度和轮询调度
 ![](images/process_scheduling.gif)
 [Windows GUI版下载](bin/SchedulingGUI.exe)
-+ [**Project 2 : 进程同步  WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/ThreadSync)
-> 经典读写者问题的模拟。
++ [**Project 2 : 进程同步**](https://github.com/racaljk/sync_infrastructure/blob/master/src/RWLock.h)
+> 经典读写者问题的模拟。然后这里并没有模拟问题，这里只是实现了一个读写锁。
 + [**:white_check_mark: Project 3 : 哲学家进餐问题**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/DeadLock)
 > 该问题由Dijkstra与1965年提出。Dijkstra也给出了解决方案。这里使用最简单的全局互斥锁解决...
 
 + [**:white_check_mark: Project 4 : 页面置换**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/PageReplacement)
 > 模拟FIFO和LRU页面置换，并给出两者的缺页数据
 
-+ [**:negative_squared_cross_mark: Project 5 : 磁盘调度 (这个没写，因为完全不感兴趣...)**]()
++ [**:negative_squared_cross_mark: Project 5 : 磁盘调度 (这个没写，因为不感兴趣...)**]()
 
 + [**Project 6 : 文件系统 WORKING**](https://github.com/cthulhujk/glut_os_practice/tree/master/src/YFileSystem)
 
